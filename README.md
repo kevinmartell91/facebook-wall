@@ -8,7 +8,7 @@ The project contains two important parts: the client and the server folder; each
 ##### `Client Folder - (ReactJs project)`
 ###### Installing dependancies
 ```console
-foo@bar:~$ yarn start
+foo@bar:~$ yarn install
 ```
 
 ###### Starting the project
@@ -29,7 +29,7 @@ const npm_stop_start = () => {
 This folder follows a Model and Controller structure for this full-stack application.
 ###### Installing dependancies
 ```console
-foo@bar:~$ yarn start
+foo@bar:~$ yarn install
 ```
 ###### Setting up environment variables
 ```console
