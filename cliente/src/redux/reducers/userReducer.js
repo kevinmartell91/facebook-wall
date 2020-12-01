@@ -1,4 +1,4 @@
-import { 
+import {
     GET_USER_POSTS,
     CREATE_USER_POST,
     UPDATE_USER_POST,
@@ -7,41 +7,41 @@ import {
 
 
 const initState = {
-    posts : [ ]
+    posts: []
 }
 
-const userReducer = ( state = initState, action) => { 
+const userReducer = (state = initState, action) => {
 
     switch (action.type) {
 
         case GET_USER_POSTS:
-            return { 
+            return {
                 ...state,
-                posts : action.payload
+                posts: action.payload
             };
-            
+
         case CREATE_USER_POST:
             return {
                 ...state,
-                posts : [
+                posts: [
                     ...state.posts,
                     action.payload
                 ]
             };
-            
+
         case UPDATE_USER_POST:
             return {
                 ...state,
-                posts:  state.posts.map((post) => post._id === action.payload._id ? action.payload : post)
-            }; 
-          
+                posts: state.posts.map((post) => post._id === action.payload._id ? action.payload : post)
+            };
+
         // TODO    
         case DELETE_USER_POST:
             return {
                 ...state,
-                posts : state.posts.filter((post) => post._id !== action.payload)
+                posts: state.posts.filter((post) => post._id !== action.payload)
             };
-            
+
         default:
             // GET_USER_POST_STATE
             return state;

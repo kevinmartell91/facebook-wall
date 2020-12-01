@@ -7,8 +7,8 @@ import Signup from './pages/auth/Signup';
 
 
 class App extends Component {
-  
-  render(){
+
+  render() {
     return (
       <BrowserRouter>
         <Navbar />
@@ -17,7 +17,7 @@ class App extends Component {
           <Route path='/signin' component={Signin} />
           <Route path='/signup' component={Signup} />
           <Route path='/' component={Dashboard} />
-        </Switch> 
+        </Switch>
       </BrowserRouter>
     );
   }
