@@ -8,9 +8,20 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from './redux/store'
 import { Provider } from "react-redux";
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
 
+const persistConfig = {
+  key: 'authType',
+  storage: storage,
+  whitelist: ['auth', 'post']
+}
+
+const pReducer = persistReducer(persistConfig, rootReducer);
 // apply redux-thunk middleware to our store
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(pReducer, applyMiddleware(thunk));
+
+persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
