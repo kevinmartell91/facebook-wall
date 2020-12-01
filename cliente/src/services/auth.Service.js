@@ -1,7 +1,10 @@
 import axios from 'axios';
+import config from "../config";
 
-const url = 'http://localhost:8080/api/v1/auth';
-// const url = 'https://facebook-wall-challenge.herokuapp.com/api/v1/auth';
+let url = `${config.URL_PATH}/auth`;
+if( process.env.REACT_APP_STAGE === "prod"){
+    url = `${config.URL_PATH}/auth`;
+}
 
 export const signIn = (credentials) => axios.post(`${url}/signin`, credentials);
 export const signUp = (credentials) => axios.post(`${url}/signup`, credentials);

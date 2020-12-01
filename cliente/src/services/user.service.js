@@ -1,7 +1,10 @@
 import axios from 'axios';
+import config from "../config";
 
-const url = 'http://localhost:8080/api/v1/users';
-// const url = 'https://facebook-wall-challenge.herokuapp.com/api/v1/users';
+let url = `${config.URL_PATH}/users`;
+if( process.env.REACT_APP_STAGE === "prod"){
+    url = `${config.URL_PATH}/users`;
+}
 
 export const getUserPosts = (userId) => axios.get(`${url}/${userId}/posts`);
 export const createUserPost = (userId, newPost) => axios.post(`${url}/${userId}/posts`, newPost);

@@ -1,6 +1,9 @@
 import axios from 'axios';
+import config from "../config";
 
-const url = 'http://localhost:8080/api/v1/posts';
-// const url = 'https://facebook-wall-challenge.herokuapp.com/api/v1/posts';
+let url = `${config.URL_PATH}/posts`;
+if( process.env.REACT_APP_STAGE === "prod"){
+    url = `${config.URL_PATH}/posts`;
+}
 
 export const fetchPosts = () => axios.get(url);
